@@ -20,8 +20,12 @@ export default function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardCl
                     element.myid = dataProfile._id
                 });
                 setCards(dataCards)
-            });
-    })
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+    }, [])
+
 
     return (
         <main className="content">
