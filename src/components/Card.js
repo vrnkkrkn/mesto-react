@@ -13,6 +13,10 @@ export default function Card({ card, onCardClick, onCardLike, onDelete }) {
         `element__heart ${isLiked && 'element__heart_active'}`
     );
 
+    function handleCardClick() {
+        onCardClick(card);
+    }
+
     function handleLikeClick() {
         onCardLike(card);
     }
@@ -23,9 +27,7 @@ export default function Card({ card, onCardClick, onCardLike, onDelete }) {
 
     return (
         <div className="element__list">
-            <img src={card.link} alt={card.name} className="element__image" onClick={() => {
-                onCardClick({ link: card.link, name: card.name })
-            }} />
+            <img src={card.link} alt={card.name} className="element__image" onClick={handleCardClick} />
             <div className="element__group">
                 <h2 className="element__title">{card.name}</h2>
                 <div className="element__like">
